@@ -12,6 +12,12 @@
 
 ## User Schema
 
+| Key      | Type   | Required |
+| -------- | ------ | -------- |
+| Username | String | True     |
+| Email    | String | True     |
+| Password | String | True     |
+
 ## Run Schema
 
 | Key         | Type   | Required |
@@ -21,11 +27,3 @@
 | Pace        | Number | True     |
 | Temperature | Number | True     |
 | Weight      | Number | True     |
-
-## User Schema
-
-| Key      | Type   | Required |
-| -------- | ------ | -------- |
-| Username | String | True     |
-| Email    | String | True     |
-| Password | String | True     |
