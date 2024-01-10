@@ -62,10 +62,8 @@ const Home = () => {
     if (run._id === editId) {
       const response = await fetch(`/api/runs/${run._id}`, {
         method: "PATCH",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
 
       const json = await response.json();

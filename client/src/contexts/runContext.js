@@ -2,7 +2,26 @@ import { createContext, useReducer } from "react";
 
 export const RunContext = createContext();
 
-export const runReducer = (state, action) => {
+export const RunContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(runReducer, {
+    runs: null,
+    stats: {
+      cumulativeMileage: 0,
+      movingMileage: 0,
+      movingPace: { minutes: 0, seconds: 0 },
+      averagePace: { minutes: 0, seconds: 0 },
+    },
+  });
+  // dispatch an action comprising type and payload
+
+  return (
+    <RunContext.Provider value={{ ...state, dispatch }}>
+      {children}
+    </RunContext.Provider>
+  );
+};
+
+const runReducer = (state, action) => {
   switch (action.type) {
     case "SET_RUNS":
       return {
@@ -120,23 +139,4 @@ export const runReducer = (state, action) => {
     default:
       return state;
   }
-};
-
-export const RunContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(runReducer, {
-    runs: null,
-    stats: {
-      cumulativeMileage: 0,
-      movingMileage: 0,
-      movingPace: { minutes: 0, seconds: 0 },
-      averagePace: { minutes: 0, seconds: 0 },
-    },
-  });
-  // dispatch an action comprising type and payload
-
-  return (
-    <RunContext.Provider value={{ ...state, dispatch }}>
-      {children}
-    </RunContext.Provider>
-  );
 };

@@ -81,7 +81,6 @@
 .links svg,
 .user-links svg {
   margin-right: 8px;
-  border: 1px solid red;
 }
 
 .stats {
@@ -232,6 +231,7 @@
 
 .modal h2 {
   color: var(--green);
+  margin: 10px 0;
 }
 
 .modal input {
@@ -243,7 +243,6 @@
   font-size: 1.2rem;
   border: 1px solid var(--green);
   border-radius: 8px;
-  margin: 10px 0 15px;
 }
 
 .modal input:focus {
@@ -297,6 +296,7 @@
   border: 1px solid red;
   background: pink;
   color: red;
+  width: 100%;
   margin-top: 15px;
   padding: 10px;
   font-weight: bold;
@@ -332,4 +332,87 @@
 .history input::-webkit-inner-spin-button {
   opacity: 1;
   margin: 0;
+}
+
+.sign {
+  width: 300px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.sign h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--green);
+  font-size: 3rem;
+}
+
+.sign h1 svg {
+  margin-right: 15px;
+  color: var(--orange);
+}
+
+.sign form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.sign h2 {
+  color: var(--green);
+  margin: 10px 0;
+}
+
+.sign input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 5px 10px;
+  color: var(--green);
+  font-size: 1.2rem;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+}
+
+.sign input:focus {
+  outline: none;
+  border: 2px solid var(--orange);
+}
+
+.sign button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 0;
+  padding: 10px 15px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.sign button:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.sign button svg {
+  margin-right: 8px;
+}
+
+.welcome {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--green);
+  margin-right: 8px;
+}
+
+.welcome span {
+  color: var(--orange);
 }

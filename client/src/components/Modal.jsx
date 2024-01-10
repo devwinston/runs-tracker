@@ -27,10 +27,8 @@ const Modal = ({ setShowModal }) => {
 
     const response = await fetch("/api/runs", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
 
     const json = await response.json();

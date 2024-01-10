@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 import colors from "colors";
+
 import runRoutes from "./routes/runRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 // express
 const app = express();
@@ -18,6 +20,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/runs", runRoutes);
+app.use("/api/user", userRoutes);
 
 // mongoose
 mongoose
