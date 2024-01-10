@@ -43,7 +43,7 @@ mongoose
   });
 
 // deployment
-if (process.env.NODE_ENV === "deployment") {
+if (process.env.MODE === "deployment") {
   const __dirname = path.resolve();
 
   app.use(express.static(path.join(__dirname, "/client/build")));
