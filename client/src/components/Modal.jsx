@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { FaPlusCircle, FaWindowClose } from "react-icons/fa";
 
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useRunContext } from "../hooks/useRunContext";
 
 const Modal = ({ setShowModal }) => {
+  const { user } = useAuthContext();
   const { dispatch } = useRunContext();
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
@@ -25,9 +27,17 @@ const Modal = ({ setShowModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!user) {
+      setError("Not authorised");
+      return;
+    }
+
     const response = await fetch("/api/runs", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        authorisation: `Bearer ${user.token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(formData),
     });
 
@@ -69,6 +79,7 @@ const Modal = ({ setShowModal }) => {
           onChange={handleChange}
           min="0"
           step="0.1"
+          autoComplete="off"
           required
         />
 
@@ -78,7 +89,8 @@ const Modal = ({ setShowModal }) => {
           id="minutes"
           value={minutes}
           onChange={handleChange}
-          min="1"
+          min="0"
+          autoComplete="off"
           required
         />
 
@@ -88,8 +100,9 @@ const Modal = ({ setShowModal }) => {
           id="seconds"
           value={seconds}
           onChange={handleChange}
-          min="0"
+          min="1"
           max="59"
+          autoComplete="off"
           required
         />
 
@@ -101,6 +114,7 @@ const Modal = ({ setShowModal }) => {
           onChange={handleChange}
           min="0"
           step="0.1"
+          autoComplete="off"
           required
         />
 
@@ -112,6 +126,7 @@ const Modal = ({ setShowModal }) => {
           onChange={handleChange}
           min="0"
           step="0.1"
+          autoComplete="off"
           required
         />
 

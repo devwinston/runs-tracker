@@ -12,12 +12,15 @@ const createRun = async (req, res) => {
   const pace = { minutes: paceMinutes, seconds: paceSeconds };
 
   try {
+    const _uid = req.user._id;
+
     const run = await Run.create({
       distance,
       duration,
       pace,
       temperature,
       weight,
+      _uid,
     });
 
     res.status(200).json(run);
@@ -28,7 +31,9 @@ const createRun = async (req, res) => {
 
 // get all runs
 const getRuns = async (req, res) => {
-  const runs = await Run.find({}).sort({ createdAt: -1 }); // descending sort
+  const _uid = req.user._id;
+
+  const runs = await Run.find({ _uid }).sort({ createdAt: -1 }); // descending sort
 
   res.status(200).json(runs);
 };

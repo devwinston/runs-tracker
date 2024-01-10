@@ -1,3 +1,4 @@
+import User from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 
 const protect = async (req, res, next) => {
@@ -15,7 +16,6 @@ const protect = async (req, res, next) => {
     const { _id } = jwt.verify(token, process.env.SECRET); // returns payload
 
     req.user = await User.findOne({ _id }).select("_id"); // returns id only
-
     next();
   } catch (error) {
     res.status(401).json({ error: "Request not authorised" });

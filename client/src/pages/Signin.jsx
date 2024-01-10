@@ -42,6 +42,7 @@ const Signin = () => {
           id="email"
           value={email}
           onChange={handleChange}
+          autoComplete="off"
           required
         />
 
@@ -51,6 +52,7 @@ const Signin = () => {
           id="password"
           value={password}
           onChange={handleChange}
+          autoComplete="off"
           required
         />
 

@@ -45,6 +45,7 @@ const Signup = () => {
           value={username}
           onChange={handleChange}
           maxLength={15}
+          autoComplete="off"
           required
         />
 
@@ -54,6 +55,7 @@ const Signup = () => {
           id="email"
           value={email}
           onChange={handleChange}
+          autoComplete="off"
           required
         />
 
@@ -63,6 +65,7 @@ const Signup = () => {
           id="password"
           value={password}
           onChange={handleChange}
+          autoComplete="off"
           required
         />
 

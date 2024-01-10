@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import {
-  FaHome,
   FaPlusCircle,
   FaUserPlus,
   FaUserCheck,
@@ -38,9 +37,6 @@ const Nav = () => {
         />
         {user && (
           <>
-            <NavLink to="/">
-              <FaHome /> Home
-            </NavLink>
             <NavLink onClick={() => setShowModal(true)}>
               <FaPlusCircle /> Create
             </NavLink>
@@ -65,7 +61,7 @@ const Nav = () => {
             <p className="welcome">
               Welcome, <span>{user.username}</span>!
             </p>
-            <NavLink to="/signin" onClick={() => signout()}>
+            <NavLink onClick={() => signout()}>
               <FaSignOutAlt /> Sign Out
             </NavLink>
           </>

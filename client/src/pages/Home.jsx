@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { FaChartLine, FaHistory, FaInfoCircle } from "react-icons/fa";
 import { MdEdit, MdDelete } from "react-icons/md";
 
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useRunContext } from "../hooks/useRunContext";
 
 const Home = () => {
+  const { user } = useAuthContext();
   const { runs, stats, dispatch } = useRunContext();
   const [editId, setEditId] = useState("");
   const [formData, setFormData] = useState({
@@ -19,7 +21,9 @@ const Home = () => {
   useEffect(() => {
     const fetchRuns = async () => {
       // add proxy in package.json to prevent Cross Origin Resource Sharing (CORS) error
-      const response = await fetch("/api/runs");
+      const response = await fetch("/api/runs", {
+        headers: { authorisation: `Bearer ${user.token}` },
+      });
 
       const json = await response.json();
 
@@ -29,8 +33,10 @@ const Home = () => {
       }
     };
 
-    fetchRuns();
-  }, [dispatch]);
+    if (user) {
+      fetchRuns();
+    }
+  }, [user, dispatch]);
 
   const formatDate = (timestamp) => {
     const date = new Date(timestamp);
@@ -46,8 +52,13 @@ const Home = () => {
   };
 
   const handleDelete = async (id) => {
+    if (!user) {
+      return;
+    }
+
     const response = await fetch(`/api/runs/${id}`, {
       method: "DELETE",
+      headers: { authorisation: `Bearer ${user.token}` },
     });
 
     const json = await response.json();
@@ -59,10 +70,17 @@ const Home = () => {
   };
 
   const handleEdit = async (run) => {
+    if (!user) {
+      return;
+    }
+
     if (run._id === editId) {
       const response = await fetch(`/api/runs/${run._id}`, {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          authorisation: `Bearer ${user.token}`,
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData),
       });
 
@@ -182,7 +200,7 @@ const Home = () => {
               <th colSpan={2}>Pace</th>
               <th rowSpan={2}>Temperature (&deg;C)</th>
               <th rowSpan={2}>Weight (kg)</th>
-              <th rowSpan={2}></th>
+              {runs && runs.length > 0 && <th rowSpan={2}></th>}
             </tr>
             <tr>
               <th>min</th>

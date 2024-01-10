@@ -15,6 +15,7 @@ const runSchema = new mongoose.Schema(
     pace: timeSchema,
     temperature: { type: Number, required: true },
     weight: { type: Number, required: true },
+    _uid: { type: mongoose.Schema.Types.ObjectId, required: true },
   },
   { timestamps: true }
 );
