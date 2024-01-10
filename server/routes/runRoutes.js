@@ -7,8 +7,15 @@ import {
   deleteRun,
   updateRun,
 } from "../controllers/runControllers.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
+
+// authorisation middleware
+
+router.use(protect);
+
+// routes
 
 router.route("/").post(createRun).get(getRuns);
 
