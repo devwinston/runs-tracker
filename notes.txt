@@ -1,0 +1,19 @@
+To start developing,
+
+1. Delete .git folder in client
+2. Move .gitignore file to root
+3. Create .env file in root
+4. Add .env to .gitignore file
+5. Initialise git in root
+6. Initialise npm in server
+7. Initialise npm in root
+
+To start deploying,
+
+1. Refer to deployment commits
+2. Create new web service on Render
+3. Add "npm run build" (ensure build script exists) under Build Command
+4. Add "npm run start" (ensure start script exists) under Start Command
+5. Add environment variables (e.g. JWT secret, MongoDB URI, etc.)
+6. Connect > Outbound > copy IP address(es) in Render
+7. Security > Network Access > IP Access List > add IP address(es) in MongoDB
