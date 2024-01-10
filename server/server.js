@@ -32,7 +32,7 @@ mongoose
     );
 
     // listen
-    const port = process.env.PORT;
+    const port = process.env.PORT || 4000;
     app.listen(port, () => {
       console.log(`Server listening on port ${port}...`);
     });
@@ -41,3 +41,14 @@ mongoose
     console.log(`Connection error: ${error.message}`.red.underline.bold);
     process.exit(1);
   });
+
+// deployment
+if (process.env.NODE_ENV === "deployment") {
+  const __dirname = path.resolve();
+
+  app.use(express.static(path.join(__dirname, "/client/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  );
+}
