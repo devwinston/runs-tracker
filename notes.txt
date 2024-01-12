@@ -2,11 +2,12 @@ To start developing,
 
 1. Delete .git folder in client
 2. Move .gitignore file to root
-3. Create .env file in root
-4. Add .env to .gitignore file
-5. Initialise git in root
-6. Initialise npm in server
-7. Initialise npm in root
+3. Remove "/" from "/node_modules" in .gitignore file
+4. Create .env file in root
+5. Add .env to .gitignore file
+6. Initialise git in root
+7. Initialise npm in server
+8. Initialise npm in root
 
 To start deploying,
 
