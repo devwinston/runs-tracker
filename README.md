@@ -1,4 +1,4 @@
-A full MERN stack web application featuring basic yet important concepts such as (1) CRUD operations with non-SQL database, (2) user authentication with JWT and password hashing, and (3) route protection with authorisation middleware.
+A full MERN stack web application featuring (1) CRUD operations with non-SQL database, (2) user authentication with JWT and password hashing, and (3) route protection with authorisation middleware.
 
 User Account (Demo)  
 Email: user@email.com  
