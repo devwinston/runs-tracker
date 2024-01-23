@@ -312,10 +312,16 @@
   font-size: 1.2rem;
 }
 
+/* Chrome, Safari, Edge, Opera */
 .history input:disabled::-webkit-outer-spin-button,
 .history input:disabled::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* Firefox */
+.history input[type="number"]:disabled {
+  -moz-appearance: textfield;
 }
 
 .history input {
