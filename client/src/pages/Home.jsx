@@ -56,6 +56,10 @@ const Home = () => {
       return;
     }
 
+    if (!window.confirm("Confirm delete?")) {
+      return;
+    }
+
     const response = await fetch(`/api/runs/${id}`, {
       method: "DELETE",
       headers: { authorisation: `Bearer ${user.token}` },
