@@ -10,6 +10,6 @@ Password: P@ssword12345
 
 [![My Skills](https://skillicons.dev/icons?i=react,nodejs,express,mongodb)](https://skillicons.dev)
 
-![Screenshot 2024-04-30 at 12 13 56 AM](https://github.com/devwinston/runs-tracker/assets/168418637/f289f1a6-0818-4070-8beb-07a2cbe64c38)
+![screenshot](https://github.com/devwinston/runs-tracker/assets/168418637/f289f1a6-0818-4070-8beb-07a2cbe64c38)
 
-![Screenshot 2024-04-30 at 12 14 15 AM](https://github.com/devwinston/runs-tracker/assets/168418637/db9c3ea0-c39c-4cce-8f67-8e10a6ec19b6)
+![screenshot](https://github.com/devwinston/runs-tracker/assets/168418637/db9c3ea0-c39c-4cce-8f67-8e10a6ec19b6)
